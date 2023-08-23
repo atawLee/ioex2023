@@ -1,0 +1,214 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/MarketApp.Server.csproj": {}
+  },
+  "projects": {
+    "/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Client/MarketApp.Client.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Client/MarketApp.Client.csproj",
+        "projectName": "MarketApp.Client",
+        "projectPath": "/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Client/MarketApp.Client.csproj",
+        "packagesPath": "/Users/leejonghoon/.nuget/packages/",
+        "outputPath": "/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Client/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/leejonghoon/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Shared/MarketApp.Shared.csproj": {
+                "projectPath": "/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Shared/MarketApp.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components.WebAssembly": {
+              "target": "Package",
+              "version": "[7.0.9, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.9, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
+              "version": "[7.0.9, 7.0.9]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.306/RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "browser-wasm": {
+          "#import": []
+        }
+      }
+    },
+    "/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/MarketApp.Server.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/MarketApp.Server.csproj",
+        "projectName": "MarketApp.Server",
+        "projectPath": "/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/MarketApp.Server.csproj",
+        "packagesPath": "/Users/leejonghoon/.nuget/packages/",
+        "outputPath": "/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/leejonghoon/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "/usr/local/share/dotnet/sdk/7.0.306/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Client/MarketApp.Client.csproj": {
+                "projectPath": "/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Client/MarketApp.Client.csproj"
+              },
+              "/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Shared/MarketApp.Shared.csproj": {
+                "projectPath": "/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Shared/MarketApp.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components.WebAssembly.Server": {
+              "target": "Package",
+              "version": "[7.0.9, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.306/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Shared/MarketApp.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Shared/MarketApp.Shared.csproj",
+        "projectName": "MarketApp.Shared",
+        "projectPath": "/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Shared/MarketApp.Shared.csproj",
+        "packagesPath": "/Users/leejonghoon/.nuget/packages/",
+        "outputPath": "/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Shared/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/leejonghoon/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.306/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

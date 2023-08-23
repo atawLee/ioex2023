@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/MarketApp.Client.props" />
+</Project>
