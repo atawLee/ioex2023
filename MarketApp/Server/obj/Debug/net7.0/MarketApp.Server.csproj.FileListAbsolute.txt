@@ -16,7 +16,6 @@
 /Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/bin/Debug/net7.0/MarketApp.Server.dll
 /Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/bin/Debug/net7.0/MarketApp.Server.pdb
 /Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/bin/Debug/net7.0/Humanizer.dll
-/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/bin/Debug/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
 /Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/bin/Debug/net7.0/Microsoft.AspNetCore.Authorization.dll
 /Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/bin/Debug/net7.0/Microsoft.AspNetCore.Components.dll
 /Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/bin/Debug/net7.0/Microsoft.AspNetCore.Components.Forms.dll
@@ -32,11 +31,6 @@
 /Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/bin/Debug/net7.0/Microsoft.Extensions.DependencyModel.dll
 /Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/bin/Debug/net7.0/Microsoft.Extensions.Logging.Abstractions.dll
 /Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/bin/Debug/net7.0/Microsoft.Extensions.Options.dll
-/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/bin/Debug/net7.0/Microsoft.IdentityModel.JsonWebTokens.dll
-/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/bin/Debug/net7.0/Microsoft.IdentityModel.Logging.dll
-/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.dll
-/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/bin/Debug/net7.0/Microsoft.IdentityModel.Tokens.dll
 /Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/bin/Debug/net7.0/Microsoft.JSInterop.dll
 /Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/bin/Debug/net7.0/Microsoft.JSInterop.WebAssembly.dll
 /Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/bin/Debug/net7.0/Microsoft.OpenApi.dll
@@ -47,7 +41,6 @@
 /Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerGen.dll
 /Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerUI.dll
 /Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/bin/Debug/net7.0/System.CodeDom.dll
-/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/bin/Debug/net7.0/System.IdentityModel.Tokens.Jwt.dll
 /Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/bin/Debug/net7.0/MarketApp.Client.dll
 /Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/bin/Debug/net7.0/MarketApp.Shared.dll
 /Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/bin/Debug/net7.0/MarketApp.Client.pdb

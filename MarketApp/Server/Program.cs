@@ -1,4 +1,7 @@
+using MarketApp.Server.Database.Context;
 using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,7 +10,25 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
-var app = builder.Build();
+
+var connection = builder.Configuration.GetConnectionString("Default");  
+builder.Services.AddDbContext<CornMarketContext>(option =>  
+{  
+    option.UseMySql(connection, ServerVersion.AutoDetect(connection));  
+});  
+  
+builder.Services.AddSwaggerGen(c =>  
+{  
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "CornMarket", Version = "v1" });  
+});  
+  
+var app = builder.Build();  
+app.UseSwagger();  
+app.UseSwaggerUI(x =>  
+{  
+    x.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");  
+  
+});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
