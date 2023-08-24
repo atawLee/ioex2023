@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.ApplicationParts;
 
 namespace MarketApp.Server.Controllers;
 [ApiController]
-[Route("[contoller]/[action]")]
+[Route("[controller]/[action]")]
 public class AccountController: ControllerBase
 {
     private readonly AccountService _service;

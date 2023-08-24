@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MarketApp.Server.Controllers;
 [ApiController]
-[Route("[contoller]")]
+[Route("[controller]")]
 [Authorize]
 public class MarketController: ControllerBase
 {

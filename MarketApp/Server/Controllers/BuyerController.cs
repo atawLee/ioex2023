@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.ApplicationParts;
 namespace MarketApp.Server.Controllers;
 
 [ApiController]
-[Route("[contoller]")]
+[Route("[controller]")]
 [Authorize]
 public class BuyerController : ControllerBase
 {
