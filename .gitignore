@@ -401,3 +401,6 @@ FodyWeavers.xsd
 */obj/*
 */bin/*
 *.dll
+
+**/obj/
+**/bin/
