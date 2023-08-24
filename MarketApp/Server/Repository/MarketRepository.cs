@@ -1,6 +1,7 @@
 using MarketApp.Server.Database.Context;
 using MarketApp.Server.Database.Entity;
 using MarketApp.Server.Repository.Interface;
+using Microsoft.EntityFrameworkCore;
 
 namespace MarketApp.Server.Repository;
 
@@ -14,17 +15,19 @@ public class MarketRepository :RepositoryBase, IMarketRepository
     
     public List<Product> GetProductByCategory(int categoryId)
     {
-        throw new NotImplementedException();
+        return _context.Products.Include(x=>x.Category)
+            .Where(x => x.CategoryId == categoryId).ToList();
     }
     
     public List<Product> GetProduct()
     {
-        throw new NotImplementedException();
+        return _context.Products.Include(x => x.Category)
+            .ToList();
     }
 
     public List<Category> GetCategory()
     {
-        throw new NotImplementedException();
+        return _context.Categories.ToList();
     }
 
     

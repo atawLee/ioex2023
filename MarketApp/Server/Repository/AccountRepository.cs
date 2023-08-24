@@ -12,12 +12,17 @@ public class AccountRepository : RepositoryBase,IAccountRepository
     
     public void CreateUser(User user)
     {
-        throw new NotImplementedException();
+        var org = _context.Users.FirstOrDefault(x => x.Email == user.Email);
+        if (org is not null) throw new Exception("중복된 사용자");
+        _context.Users.Add(user);
+        _context.SaveChanges();
     }
 
-    public User GetUser(User user)
+    public User GetUser(string email, string passwordHash)
     {
-        throw new NotImplementedException();
+        var user = _context.Users.FirstOrDefault(x => x.Email == email && x.Password == passwordHash);
+        if (user is null) throw new Exception("이메일 또는 패스워드 확인");
+        return user;
     }
 
     

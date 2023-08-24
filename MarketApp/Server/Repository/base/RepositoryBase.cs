@@ -4,7 +4,7 @@ namespace MarketApp.Server.Repository;
 
 public class RepositoryBase
 {
-    private readonly CornMarketContext _context;
+    protected readonly CornMarketContext _context;
 
     public RepositoryBase(CornMarketContext context)
     {

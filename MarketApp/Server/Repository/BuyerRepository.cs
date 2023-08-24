@@ -12,12 +12,14 @@ public class BuyerRepository : RepositoryBase,IBuyerRepository
     
     public List<Cart> GetCart(int userId)
     {
-        throw new NotImplementedException();
+        return _context.Carts.Where(x => x.UserId == userId).ToList();
     }
 
     public Cart AddCart(Cart cart)
     {
-        throw new NotImplementedException();
+        _context.Carts.Add(cart);
+        _context.SaveChanges();
+        return cart;
     }
 
     

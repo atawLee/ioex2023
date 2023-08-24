@@ -1,6 +1,7 @@
 using MarketApp.Server.Database.Context;
 using MarketApp.Server.Database.Entity;
 using MarketApp.Server.Repository.Interface;
+using Microsoft.EntityFrameworkCore;
 
 namespace MarketApp.Server.Repository;
 
@@ -12,22 +13,30 @@ public class SalesRepository : RepositoryBase ,ISalesRepository
     
     public Product AddProduct(Product product)
     {
-        throw new NotImplementedException();
+        _context.Products.Add(product);
+        _context.SaveChanges();
+        return product;
     }
 
     public List<Product> GetSalesProducts(int userId)
     {
-        throw new NotImplementedException();
+        return _context.Products.Include(x => x.Category)
+            .Where(x=>x.UserId == userId).ToList();
     }
 
     public void DeleteProduct(Product product)
     {
-        throw new NotImplementedException();
+        _context.Products.Remove(product);
+        _context.SaveChanges();
     }
 
     public void UpdateProduct(Product product)
     {
-        throw new NotImplementedException();
+        var org = _context.Products.FirstOrDefault(x => x.ProductId == product.ProductId);
+        org.CategoryId = product.CategoryId;
+        org.Price = product.Price;
+        org.ProductName = product.ProductName;
+        _context.SaveChanges();
     }
 
     
