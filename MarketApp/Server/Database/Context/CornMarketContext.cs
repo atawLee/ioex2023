@@ -45,10 +45,12 @@ public partial class CornMarketContext : DbContext
 
             entity.HasOne(d => d.Product).WithMany(p => p.Carts)
                 .HasForeignKey(d => d.ProductId)
+                .OnDelete(DeleteBehavior.SetNull)
                 .HasConstraintName("Cart_ibfk_2");
 
             entity.HasOne(d => d.User).WithMany(p => p.Carts)
                 .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.SetNull)
                 .HasConstraintName("Cart_ibfk_1");
         });
 
@@ -74,6 +76,10 @@ public partial class CornMarketContext : DbContext
             entity.Property(e => e.ImageUrl)
                 .HasMaxLength(500)
                 .HasColumnName("imageUrl");
+            entity.Property(e => e.IsActive)
+                .IsRequired()
+                .HasDefaultValueSql("'1'")
+                .HasColumnName("isActive");
             entity.Property(e => e.Price)
                 .HasPrecision(10, 2)
                 .HasColumnName("price");
@@ -87,10 +93,12 @@ public partial class CornMarketContext : DbContext
 
             entity.HasOne(d => d.Category).WithMany(p => p.Products)
                 .HasForeignKey(d => d.CategoryId)
+                .OnDelete(DeleteBehavior.SetNull)
                 .HasConstraintName("Products_ibfk_2");
 
             entity.HasOne(d => d.User).WithMany(p => p.Products)
                 .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.SetNull)
                 .HasConstraintName("Products_ibfk_1");
         });
 
@@ -105,6 +113,10 @@ public partial class CornMarketContext : DbContext
             entity.Property(e => e.Password)
                 .HasMaxLength(255)
                 .HasColumnName("password");
+            entity.Property(e => e.Role)
+                .HasMaxLength(50)
+                .HasDefaultValueSql("'USER'")
+                .HasColumnName("role");
             entity.Property(e => e.Username)
                 .HasMaxLength(100)
                 .HasColumnName("username");

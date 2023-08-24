@@ -21,6 +21,8 @@ public partial class Product
 
     public DateTime RegistrationDate { get; set; }
 
+    public bool? IsActive { get; set; }
+
     public virtual ICollection<Cart> Carts { get; set; } = new List<Cart>();
 
     public virtual Category? Category { get; set; }

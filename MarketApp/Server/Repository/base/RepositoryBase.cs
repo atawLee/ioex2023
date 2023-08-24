@@ -10,4 +10,5 @@ public class RepositoryBase
     {
         _context = context;
     }
+    
 }

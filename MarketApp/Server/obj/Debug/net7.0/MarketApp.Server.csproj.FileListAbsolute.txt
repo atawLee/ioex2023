@@ -68,3 +68,10 @@
 /Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/obj/Debug/net7.0/MarketApp.Server.pdb
 /Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/obj/Debug/net7.0/MarketApp.Server.genruntimeconfig.cache
 /Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/obj/Debug/net7.0/ref/MarketApp.Server.dll
+/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/bin/Debug/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/bin/Debug/net7.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/bin/Debug/net7.0/Microsoft.IdentityModel.Logging.dll
+/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.dll
+/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/bin/Debug/net7.0/Microsoft.IdentityModel.Tokens.dll
+/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Server/bin/Debug/net7.0/System.IdentityModel.Tokens.Jwt.dll
