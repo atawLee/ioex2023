@@ -1,4 +1,7 @@
 using MarketApp.Server.Database.Context;
+using MarketApp.Server.Repository;
+using MarketApp.Server.Repository.Interface;
+using MarketApp.Server.Service;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -9,6 +12,16 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+
+builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+builder.Services.AddScoped<IBuyerRepository, BuyerRepository>();
+builder.Services.AddScoped<ISalesRepository, SalesRepository>();
+builder.Services.AddScoped<IMarketRepository, MarketRepository>();
+
+builder.Services.AddScoped<AccountService>();
+builder.Services.AddScoped<BuyerService>();
+builder.Services.AddScoped<MarketService>();
+builder.Services.AddScoped<SalesService>();
 
 
 var connection = builder.Configuration.GetConnectionString("Default");  
