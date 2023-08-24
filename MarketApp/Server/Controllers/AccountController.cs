@@ -21,7 +21,7 @@ public class AccountController: ControllerBase
         _service.SignUp(param.email,param.userName,param.userRole,param.password);
     }
 
-    [HttpGet]
+    [HttpPost]
     public UserDto SignIn([FromBody] SignInRequest param)
     {
         return _service.SignIn(param.email, param.password);
