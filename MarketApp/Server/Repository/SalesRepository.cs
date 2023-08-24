@@ -39,5 +39,10 @@ public class SalesRepository : RepositoryBase ,ISalesRepository
         _context.SaveChanges();
     }
 
-    
+    public void UpdateUrl(int productId, string imageUrl)
+    {
+        var first = _context.Products.FirstOrDefault(x => x.ProductId == productId);
+        first.ImageUrl = imageUrl;
+        _context.SaveChanges();
+    }
 }

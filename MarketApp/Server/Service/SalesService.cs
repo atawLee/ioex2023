@@ -14,7 +14,7 @@ public class SalesService
         _repository = repository;
     }
 
-    public ProductDto AddProduct(int userId, string productName , int categoryId, int price, string content, string imageUrl )
+    public ProductDto AddProduct(int userId, string productName , int categoryId, int price, string content )
     {
         Product product = new()
         {
@@ -24,7 +24,7 @@ public class SalesService
             CategoryId = categoryId,
             Price = price,
             Content = content,
-            ImageUrl = imageUrl,
+            
             RegistrationDate = DateTime.Now,
             IsActive = true,
         };
@@ -52,19 +52,17 @@ public class SalesService
     {
         Product product = new()
         {
-            ProductId = 0,
+            ProductId = productId,
             UserId = null,
-            ProductName = null,
-            CategoryId = null,
-            Price = 0,
-            Content = null,
-            ImageUrl = null,
-            RegistrationDate = default,
-            IsActive = true,
-            Carts = null,
-            Category = null,
-            User = null
+            ProductName = productName,
+            CategoryId = category,
+            Price = price,
         };
+        _repository.UpdateProduct(product);
     }
 
+    public void UpdateUrl(int productId,string imageUrl)
+    {
+        _repository.UpdateUrl(productId, imageUrl);
+    }
 }

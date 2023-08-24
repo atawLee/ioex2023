@@ -11,4 +11,5 @@ public interface ISalesRepository
     public void DeleteProduct(Product product);
 
     public void UpdateProduct(Product product);
+    public void UpdateUrl(int productId, string imageUrl);
 }
