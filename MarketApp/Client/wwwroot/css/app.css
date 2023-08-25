@@ -1,4 +1,106 @@
+
+
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+.container {
+    margin: auto;
+    max-width: 1200px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-md-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+    padding: 15px;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 16px;
+    padding: 16px;
+}
+
+.card-img-top {
+    max-width: 100%;
+    height: auto;
+}
+
+.card-body {
+    padding: 16px;
+}
+
+.btn {
+    background-color: blue;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    display: inline-block;
+}
+.cart-section {
+    margin-top: 2em;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart-table th, .cart-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+.cart-table th {
+    background-color: #f2f2f2;
+}
+.cart-section {
+    margin-top: 2em;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-md-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.cart-row {
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+.cart-card {
+    display: flex;
+    align-items: center;
+}
+
+.cart-image img {
+    max-width: 100px;
+    height: auto;
+}
+
+.cart-details {
+    padding-left: 16px;
+}
+.quantity-button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    font-size: 16px;
+    background-color: #007bff; /* 밝은 파란색 */
+    color: white; /* 텍스트 색상 */
+    border: none; /* 보더 제거 */
+    border-radius: 5px; /* 둥근 모서리 */
+    cursor: pointer; /* 마우스 오버시 손가락 커서 */
+}
+
 
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -20,6 +122,12 @@ a, .btn-link {
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+.restricted-image {
+    height: 120px;
+    width: 100px;
+    object-fit: fill;  /* This will make sure the aspect ratio is maintained */
 }
 
 .content {

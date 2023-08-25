@@ -1,0 +1,70 @@
+@page "/productlist"
+@using MarketApp.Shared
+@using MarketApp.Client.Service
+@inject HttpClient Http
+@inject AlertService Alert
+
+<div class="container">
+    <div class="row">
+        @foreach(var product in products)
+        {
+            <div class="col-md-3">
+                <div class="card">
+                    <!-- Apply the class 'restricted-image' here -->
+                    <img src="@product.ImageUrl" alt="@product.ProductName" class="restricted-image">
+                    <div class="card-body">
+                        <h5 class="card-title">@product.ProductName</h5>
+                        <p class="card-text">@product.Content</p>
+                        <p class="card-text">Price: $@product.Price</p>
+                        <a @onclick="() => AddCart(product.ProductId)" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+@code {
+    private List<ProductDto> products = new List<ProductDto>();
+    private List<ProductDto> ProductAll { get; set; } = new();
+
+    private int SelectedCategory
+    {
+        get => _selectedCategory;
+        set
+        {
+            
+            _selectedCategory = value;
+            this.products = this.ProductAll.Where(x => x.CategoryId == _selectedCategory).ToList();
+        }
+    }
+
+    private List<CategoryDto> categories = new List<CategoryDto>();
+    private int _selectedCategory = 0;
+
+    // 페이지 로드 시 상품 목록을 가져옴 (예시)
+    protected override async Task OnInitializedAsync()
+    {
+        categories = await Http.GetFromJsonAsync<List<CategoryDto>>("category");
+        ProductAll = await Http.GetFromJsonAsync<List<ProductDto>>("Market");
+        products = ProductAll;
+        StateHasChanged();
+    }
+
+    private async Task AddCart(int productProductId)
+    {
+        var cartInfo = new CartInfoRequest(productProductId, 1);
+        var response = await Http.PostAsJsonAsync("Buy", cartInfo);
+        if (response.IsSuccessStatusCode)
+        {
+    // 성공적으로 카트에 추가되었습니다
+            await Alert.ShowAlertAsync("추가되었습니다.");
+        }
+        else
+        {
+    
+        }
+    }
+
+}

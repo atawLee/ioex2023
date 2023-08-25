@@ -198,15 +198,15 @@
       "mscorlib.dll": "sha256-t1RT9mknsQ54H+sVa1vtMhjv3D8ZjiAGoLzHvuIObPw=",
       "netstandard.dll": "sha256-5SHKPh1PcuJjq4lIo7ymdIyhb9d3++oMAjr46auhUSc=",
       "System.Private.CoreLib.dll": "sha256-eH+XIsCUG5oZ0k8AIzNtRLTCLiV\/8Zv0RFCPMsIkdYY=",
-      "MarketApp.Shared.dll": "sha256-znHUGX+JPnRe6GAFyhh+aK87PYA8PprE8M3u5V4K6rI=",
-      "MarketApp.Client.dll": "sha256-70GcBYYSbWl5r0w4pYIDG1DbmgCaQBXxUYwHi6B5ty0="
+      "MarketApp.Shared.dll": "sha256-KyOanpTyCUb\/S43TF\/\/z1s60QOOLFr4NSfCqNKd4EMw=",
+      "MarketApp.Client.dll": "sha256-PRVjA2nZSvGg52udFlMzDhtYeF1F3jrVU8NMAYJTgr4="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "MarketApp.Shared.pdb": "sha256-\/qpAw7Ev7eSPMlByWFjfA\/u4NUfB7INkUO+Cz6AVKq4=",
-      "MarketApp.Client.pdb": "sha256-AR0a9wOukGkmWjODXn46SEe7ORSw4HvldR0cFanZGWA="
+      "MarketApp.Shared.pdb": "sha256-fysHOmaEnXLx7vuCNCAAQKZjpB5YKklTNOeshwKWU4g=",
+      "MarketApp.Client.pdb": "sha256-1S6+OoggA4f377A28qBOuzpawnNPs5C8C3uk3N\/8R6A="
     },
     "runtime": {
       "dotnet.7.0.9.wvnuittz8l.js": "sha256-dUIY5Mz0ozZWqtTfBb7ArJKbdh5IIp8BXeq6UjK4u\/c=",

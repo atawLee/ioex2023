@@ -10,3 +10,10 @@
 /Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Shared/obj/Debug/net7.0/refint/MarketApp.Shared.dll
 /Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Shared/obj/Debug/net7.0/MarketApp.Shared.pdb
 /Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Shared/obj/Debug/net7.0/ref/MarketApp.Shared.dll
+/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Shared/bin/Debug/net7.0/Microsoft.AspNetCore.Http.Features.dll
+/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Shared/bin/Debug/net7.0/Microsoft.Net.Http.Headers.dll
+/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Shared/bin/Debug/net7.0/Microsoft.Extensions.Primitives.dll
+/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Shared/bin/Debug/net7.0/System.IO.Pipelines.dll
+/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Shared/bin/Debug/net7.0/Microsoft.AspNetCore.Connections.Abstractions.dll
+/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Shared/bin/Debug/net7.0/Microsoft.Extensions.Features.dll
+/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Shared/obj/Debug/net7.0/MarketApp.Shared.csproj.CopyComplete

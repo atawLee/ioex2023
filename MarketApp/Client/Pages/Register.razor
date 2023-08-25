@@ -1,0 +1,102 @@
+@page "/register"
+@using MarketApp.Shared
+@using MarketApp.Client.Service
+@inject HttpClient Http
+@inject UserStateManager UserManager 
+
+<link href="css/register.css" rel="stylesheet" />
+
+<h3>상품등록</h3>
+
+<form @onsubmit="HandleValidSubmit">
+    <div class="textfield-container">
+        <InputFile OnChange="HandleFileSelected" />
+        <label>File</label>
+    </div>
+    
+    <div class="textfield-container">
+       
+        <select @bind="category">
+            @foreach (var cat in categories)
+            {
+                <option value="@cat.CategoryId">@cat.CategoryName</option>
+            }
+        </select>
+ <label>Category</label>
+    </div>
+    <div class="textfield-container">
+        <InputNumber @bind-Value="price" />
+        <label>Price</label>
+    </div>
+    <div class="textfield-container">
+        <InputText @bind-Value="productName" />
+        <label>Product Name</label>
+    </div>
+    <div class="textfield-container">
+        <InputTextArea @bind-Value="content"></InputTextArea>
+        <label>Content</label>
+    </div>
+    <button type="submit" class="submit-button">Submit</button>
+</form>
+
+@code {
+    private IBrowserFile selectedFile;
+    private int userId;
+    private int category;
+    private int price;
+    private string productName;
+    private string content;
+
+    private List<CategoryDto> categories = new List<CategoryDto>()
+    {
+        new () { CategoryId = 0, CategoryName = "선택하세요" }
+    };
+
+    protected override async Task OnInitializedAsync()
+    {
+        
+        var items = await Http.GetFromJsonAsync<List<CategoryDto>>("category");
+        
+        items.ForEach(x=> categories.Add(x));
+        base.OnInitializedAsync();
+    }
+
+    private void HandleFileSelected(InputFileChangeEventArgs e)
+    {
+        selectedFile = e.File;
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        var form = new MultipartFormDataContent();
+
+    // Adding file content
+        var stream = selectedFile.OpenReadStream();
+        var fileContent = new StreamContent(stream);
+        fileContent.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue("form-data") 
+        { 
+            Name = "file", 
+            FileName = selectedFile.Name 
+        };
+        form.Add(fileContent);
+
+    // Adding other properties
+        form.Add(new StringContent(userId.ToString()), "userId");
+        form.Add(new StringContent(category.ToString()), "category");
+        form.Add(new StringContent(price.ToString()), "price");
+        form.Add(new StringContent(productName), "productName");
+        form.Add(new StringContent(content), "content");
+
+    // Sending form data
+        var response = await Http.PostAsync("Regist", form);
+
+        if (response.IsSuccessStatusCode)
+        {
+  
+        }
+        else
+        {
+    // Handle error
+        }
+    }
+}
