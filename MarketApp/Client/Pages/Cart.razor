@@ -1,0 +1,80 @@
+@page "/cart"
+@using MarketApp.Shared
+<div class="cart-section">
+    <h2>Your Cart</h2>
+    @if (cartItems.Count == 0)
+    {
+        <p>장바구니가 비었습니다.</p>
+    }
+    else
+    {
+        <div class="row">
+            @foreach (var cartItem in cartItems)
+            {
+                <div class="col-md-12 cart-row">
+                    <div class="cart-card">
+                        <div class="cart-image">
+                            <img src="@cartItem.Product.ImageUrl" alt="@cartItem.Product.ProductName">
+                        </div>
+                        <div class="cart-details">
+                            <h5>@cartItem.Product.ProductName</h5>
+                            <p>
+                                Quantity: 
+                                <button @onclick="() => UpdateQuantity(cartItem, -1)" class="quantity-button">-</button>
+                                @cartItem.Quantity
+                                <button @onclick="() => UpdateQuantity(cartItem, 1)" class="quantity-button">+</button>
+                            </p>
+                            <p>Price: $@cartItem.TotalPrice</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+
+
+@code {
+    private List<CartDto> cartItems = new List<CartDto>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        // 장바구니 항목을 API로부터 가져오거나 더미 데이터 사용
+        cartItems = new List<CartDto>
+        {
+            new CartDto { CartId = 1, Quantity = 2, Product = new ProductDto { ProductName = "상품1", Price = 100.0m, ImageUrl = "images/1.png"} },
+            new CartDto { CartId = 2,  Quantity = 1, Product = new ProductDto { ProductName = "상품2", Price = 200.0m, ImageUrl = "images/1.png"} },
+            // ... 추가 항목들
+        };
+
+        //base.OnInitializedAsync();
+    }
+
+    private void RemoveFromCart(int cartId)
+    {
+        var item = cartItems.SingleOrDefault(x => x.CartId == cartId);
+        if (item != null)
+        {
+            cartItems.Remove(item);
+        }
+
+        // 여기에서 API 호출을 통해 서버 상의 장바구니에서도 항목을 제거할 수 있습니다.
+    }
+    
+
+        private void UpdateQuantity(CartDto cartItem, int delta)
+        {
+            var item = cartItems.FirstOrDefault(c => c.CartId == cartItem.CartId);
+            if (item != null)
+            {
+                item.Quantity += delta;
+                if (item.Quantity <= 0)
+                {
+                    cartItems.Remove(item);
+                }
+            }
+        }
+    
+
+}

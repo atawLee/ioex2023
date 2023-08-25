@@ -1,0 +1,45 @@
+@page "/productlist"
+@using MarketApp.Shared
+
+<div class="container">
+    <div class="row">
+        @foreach(var product in products)
+        {
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="@product.ImageUrl" alt="@product.ProductName" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">@product.ProductName</h5>
+                        <p class="card-text">@product.Content</p>
+                        <p class="card-text">Price: $@product.Price</p>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    private List<ProductDto> products = new List<ProductDto>();
+
+    // 페이지 로드 시 상품 목록을 가져옴 (예시)
+    protected override async Task OnInitializedAsync()
+    {
+        // 상품 목록을 API로부터 가져오거나 더미 데이터 사용
+        products = new List<ProductDto>
+        {
+            new ProductDto { ImageUrl= "/images/1.png" , ProductId = 1, ProductName = "상품1", CategoryId = 1, CategoryName = "카테고리1", Price = 100.0m },
+            new ProductDto { ImageUrl= "images/1.png" , ProductId = 2, ProductName = "상품2", CategoryId = 2, CategoryName = "카테고리2", Price = 200.0m },
+            new ProductDto { ImageUrl= "images/1.png" , ProductId = 1, ProductName = "상품1", CategoryId = 1, CategoryName = "카테고리1", Price = 100.0m },
+            new ProductDto { ImageUrl= "images/1.png" , ProductId = 2, ProductName = "상품2", CategoryId = 2, CategoryName = "카테고리2", Price = 200.0m },
+            new ProductDto { ImageUrl= "images/1.png" , ProductId = 5, ProductName = "상품1", CategoryId = 1, CategoryName = "카테고리1", Price = 100.0m },
+            new ProductDto { ImageUrl= "images/1.png" , ProductId = 6, ProductName = "상품2", CategoryId = 2, CategoryName = "카테고리2", Price = 200.0m },
+            new ProductDto { ImageUrl= "images/1.png" , ProductId = 7, ProductName = "상품1", CategoryId = 1, CategoryName = "카테고리1", Price = 100.0m },
+            new ProductDto { ImageUrl= "images/1.png" , ProductId = 8, ProductName = "상품2", CategoryId = 2, CategoryName = "카테고리2", Price = 200.0m },
+            //... 추가 상품들
+        };
+
+      
+    }
+}

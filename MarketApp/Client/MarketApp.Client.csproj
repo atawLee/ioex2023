@@ -17,7 +17,7 @@
 
     <ItemGroup>
       <Folder Include="Repository\" />
-      <Folder Include="Service\" />
+      <Folder Include="wwwroot\image\" />
     </ItemGroup>
 
 </Project>

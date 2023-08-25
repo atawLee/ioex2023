@@ -14,7 +14,9 @@ public class SalesRepository : RepositoryBase ,ISalesRepository
     public Product AddProduct(Product product)
     {
         _context.Products.Add(product);
+        var category = _context.Categories.FirstOrDefault(x => x.CategoryId == product.CategoryId);
         _context.SaveChanges();
+        product.Category = category;
         return product;
     }
 

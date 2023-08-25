@@ -29,6 +29,7 @@ public class SalesService
             IsActive = true,
         };
         _repository.AddProduct(product);
+        
         return DtoConverter.ConvertToDto(product);
     }
     public List<ProductDto> GetSalesProduct(int userId)

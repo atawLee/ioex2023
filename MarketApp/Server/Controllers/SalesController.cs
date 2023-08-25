@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace MarketApp.Server.Controllers;
 [ApiController]
 [Route("[controller]")]
-[Authorize("Seller")]
+
 public class SalesController: ControllerBase
 {
     private readonly IWebHostEnvironment _webHostEnvironment;
@@ -28,8 +28,8 @@ public class SalesController: ControllerBase
 
         if (param.file != null && param.file.Length > 0)
         {
-            // 웹 루트 경로 가져오기
-            var webRoot = _webHostEnvironment.WebRootPath;
+            //클라이언트 정적 파일루트 
+            var webRoot = "/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Client/wwwroot";
             
             // 파일 확장자 가져오기
             var extension = Path.GetExtension(param.file.FileName);
@@ -40,9 +40,10 @@ public class SalesController: ControllerBase
 
             var dir = Path.Combine(webRoot, "images");
             // 파일 저장
+            Directory.CreateDirectory(dir);
             using (var fileStream = new FileStream(filePath, FileMode.Create))
             {
-                Directory.CreateDirectory(dir);
+                
                 param.file.CopyTo(fileStream);
             }
 

@@ -12,6 +12,8 @@ public class CartDto
     public int CartId { get; set; }
     public int Quantity { get; set; }
     public ProductDto Product { get; set; }
+
+    public int TotalPrice => ((int)Product.Price ) * Quantity;
 }
 public class ProductDto
 {
@@ -22,6 +24,7 @@ public class ProductDto
     public decimal Price { get; set; }
     public string Content { get; set; }
     public string ImageUrl { get; set; }
+
     public DateTime RegistrationDate { get; set; }
     
 }

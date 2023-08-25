@@ -12,7 +12,7 @@ public class DtoConverter
             ProductId = product.ProductId,
             ProductName = product.ProductName,
             CategoryId = product.CategoryId ?? 0,
-            CategoryName = product.Category.CategoryName,
+            CategoryName = product.Category?.CategoryName,
             Price = product.Price,
             Content =product.Content,
             ImageUrl = product.ImageUrl,
