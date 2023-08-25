@@ -1,3 +1,5 @@
+using System.Security.Claims;
+using MarketApp.Server.Repository.Policy;
 using MarketApp.Server.Service;
 using MarketApp.Shared;
 using Microsoft.AspNetCore.Authorization;
@@ -6,11 +8,14 @@ using Microsoft.AspNetCore.Mvc;
 namespace MarketApp.Server.Controllers;
 [ApiController]
 [Route("[controller]")]
-
+[Authorize(Policy = Polices.Seller)]
 public class SalesController: ControllerBase
 {
     private readonly IWebHostEnvironment _webHostEnvironment;
     private readonly SalesService _service;
+    
+    private int UserId => int.Parse(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value ?? "0");
+
 
     public SalesController(IWebHostEnvironment webHostEnvironment ,SalesService service)
     {
@@ -19,10 +24,11 @@ public class SalesController: ControllerBase
     }
 
     [HttpPost]
+    [Route("~/Regist")]
     public ProductDto RegistSalesProduct([FromForm] ProductPostRequest param)
     {
        
-        var dto = _service.AddProduct(param.userid, param.productName, param.category, param.price, param.content);
+        var dto = _service.AddProduct(this.UserId, param.productName, param.category, param.price, param.content);
         
         string imageUrl = null; // 이 변수에 URL을 저장할 것입니다.
 

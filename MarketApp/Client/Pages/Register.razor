@@ -52,7 +52,14 @@
         new () { CategoryId = 0, CategoryName = "선택하세요" }
     };
 
-    
+    protected override async Task OnInitializedAsync()
+    {
+        
+        var items = await Http.GetFromJsonAsync<List<CategoryDto>>("category");
+        
+        items.ForEach(x=> categories.Add(x));
+        base.OnInitializedAsync();
+    }
 
     private void HandleFileSelected(InputFileChangeEventArgs e)
     {
@@ -81,11 +88,11 @@
         form.Add(new StringContent(content), "content");
 
     // Sending form data
-        var response = await Http.PostAsync("https://your-api-endpoint.com/product/register", form);
+        var response = await Http.PostAsync("Regist", form);
 
         if (response.IsSuccessStatusCode)
         {
-    // Do something upon success (e.g., navigate to another page or show a success message)
+  
         }
         else
         {

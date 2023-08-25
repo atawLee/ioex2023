@@ -1,5 +1,8 @@
 @page "/productlist"
 @using MarketApp.Shared
+@using MarketApp.Client.Service
+@inject HttpClient Http
+@inject AlertService Alert
 
 <div class="container">
     <div class="row">
@@ -7,12 +10,13 @@
         {
             <div class="col-md-3">
                 <div class="card">
-                    <img src="@product.ImageUrl" alt="@product.ProductName" class="card-img-top">
+                    <!-- Apply the class 'restricted-image' here -->
+                    <img src="@product.ImageUrl" alt="@product.ProductName" class="restricted-image">
                     <div class="card-body">
                         <h5 class="card-title">@product.ProductName</h5>
                         <p class="card-text">@product.Content</p>
                         <p class="card-text">Price: $@product.Price</p>
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                        <a @onclick="() => AddCart(product.ProductId)" class="btn btn-primary">Add to Cart</a>
                     </div>
                 </div>
             </div>
@@ -20,26 +24,47 @@
     </div>
 </div>
 
+
 @code {
     private List<ProductDto> products = new List<ProductDto>();
+    private List<ProductDto> ProductAll { get; set; } = new();
+
+    private int SelectedCategory
+    {
+        get => _selectedCategory;
+        set
+        {
+            
+            _selectedCategory = value;
+            this.products = this.ProductAll.Where(x => x.CategoryId == _selectedCategory).ToList();
+        }
+    }
+
+    private List<CategoryDto> categories = new List<CategoryDto>();
+    private int _selectedCategory = 0;
 
     // 페이지 로드 시 상품 목록을 가져옴 (예시)
     protected override async Task OnInitializedAsync()
     {
-        // 상품 목록을 API로부터 가져오거나 더미 데이터 사용
-        products = new List<ProductDto>
-        {
-            new ProductDto { ImageUrl= "/images/1.png" , ProductId = 1, ProductName = "상품1", CategoryId = 1, CategoryName = "카테고리1", Price = 100.0m },
-            new ProductDto { ImageUrl= "images/1.png" , ProductId = 2, ProductName = "상품2", CategoryId = 2, CategoryName = "카테고리2", Price = 200.0m },
-            new ProductDto { ImageUrl= "images/1.png" , ProductId = 1, ProductName = "상품1", CategoryId = 1, CategoryName = "카테고리1", Price = 100.0m },
-            new ProductDto { ImageUrl= "images/1.png" , ProductId = 2, ProductName = "상품2", CategoryId = 2, CategoryName = "카테고리2", Price = 200.0m },
-            new ProductDto { ImageUrl= "images/1.png" , ProductId = 5, ProductName = "상품1", CategoryId = 1, CategoryName = "카테고리1", Price = 100.0m },
-            new ProductDto { ImageUrl= "images/1.png" , ProductId = 6, ProductName = "상품2", CategoryId = 2, CategoryName = "카테고리2", Price = 200.0m },
-            new ProductDto { ImageUrl= "images/1.png" , ProductId = 7, ProductName = "상품1", CategoryId = 1, CategoryName = "카테고리1", Price = 100.0m },
-            new ProductDto { ImageUrl= "images/1.png" , ProductId = 8, ProductName = "상품2", CategoryId = 2, CategoryName = "카테고리2", Price = 200.0m },
-            //... 추가 상품들
-        };
-
-      
+        categories = await Http.GetFromJsonAsync<List<CategoryDto>>("category");
+        ProductAll = await Http.GetFromJsonAsync<List<ProductDto>>("Market");
+        products = ProductAll;
+        StateHasChanged();
     }
+
+    private async Task AddCart(int productProductId)
+    {
+        var cartInfo = new CartInfoRequest(productProductId, 1);
+        var response = await Http.PostAsJsonAsync("Buy", cartInfo);
+        if (response.IsSuccessStatusCode)
+        {
+    // 성공적으로 카트에 추가되었습니다
+            await Alert.ShowAlertAsync("추가되었습니다.");
+        }
+        else
+        {
+    
+        }
+    }
+
 }

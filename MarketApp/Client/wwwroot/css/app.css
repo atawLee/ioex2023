@@ -124,6 +124,12 @@ a, .btn-link {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
+.restricted-image {
+    height: 120px;
+    width: 100px;
+    object-fit: fill;  /* This will make sure the aspect ratio is maintained */
+}
+
 .content {
     padding-top: 1.1rem;
 }

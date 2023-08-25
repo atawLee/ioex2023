@@ -8,4 +8,6 @@ public interface IBuyerRepository
 
     public Cart AddCart(Cart cart);
 
+    public Cart UpdateCart(Cart cart);
+    
 }

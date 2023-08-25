@@ -2,16 +2,20 @@
 
 <div class="page">
     <div class="sidebar">
-        <NavMenu/>
+        <NavMenu />
     </div>
 
     <main>
         <div class="top-row px-4">
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+            <NavLink class="nav-link" href="ThankYou">
+                                <span class="oi oi-cart" aria-hidden="true"></span> Thank You!
+                            </NavLink>
         </div>
 
         <article class="content px-4">
             @Body
         </article>
     </main>
+    
+    <!-- 토스트 컴포넌트 추가 -->
 </div>

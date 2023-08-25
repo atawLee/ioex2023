@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using MarketApp.Server.Service;
 using MarketApp.Shared;
 using Microsoft.AspNetCore.Authorization;
@@ -7,11 +8,12 @@ using Microsoft.AspNetCore.Mvc.ApplicationParts;
 namespace MarketApp.Server.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("Buy")]
 [Authorize]
 public class BuyerController : ControllerBase
 {
     private readonly BuyerService _service;
+    private int UserId =>int.Parse(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value ?? "0");
 
     public BuyerController(BuyerService service)
     {
@@ -19,15 +21,22 @@ public class BuyerController : ControllerBase
     }
 
     [HttpGet]
-    [Route("{userId}")]
-    public List<CartDto> Carts(int userId)
+    [Route("~/Cart")]
+    public List<CartDto> Carts()
     {
-        return _service.GetCarts(userId);
+        return _service.GetCarts(this.UserId);
     }
 
     [HttpPost]
-    public CartDto AddCart([FromBody] CartInfoRequest param)
+    public void AddCart([FromBody] CartInfoRequest param)
+    { 
+        _service.AddCart(this.UserId,param.productId,param.qty );
+    }
+
+    [HttpPut]
+    [Route("~/Cart")]
+    public void UpdateCart([FromBody] CartInfoRequest param)
     {
-        return _service.AddCart(param.userId,param.productId,param.qty );
+        _service.UpdateCart(this.UserId, param.productId, param.qty);
     }
 }

@@ -1,9 +1,13 @@
+using System.Text;
 using MarketApp.Server.Database.Context;
 using MarketApp.Server.Repository;
 using MarketApp.Server.Repository.Interface;
+using MarketApp.Server.Repository.Policy;
 using MarketApp.Server.Service;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -34,6 +38,30 @@ builder.Services.AddSwaggerGen(c =>
 {  
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "CornMarket", Version = "v1" });  
 });  
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+{
+    options.RequireHttpsMetadata = false;
+    options.SaveToken = true;
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SecretKey"])),
+        ClockSkew = TimeSpan.Zero
+    };
+});
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy(Polices.User, Polices.UserPolicy());
+    options.AddPolicy(Polices.Seller, Polices.SellerPolicy());
+});
+
   
 var app = builder.Build();  
 app.UseSwagger();  
@@ -62,6 +90,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapRazorPages();
 app.MapControllers();

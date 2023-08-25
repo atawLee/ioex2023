@@ -20,7 +20,7 @@ public class BuyerService
             .Select(x => DtoConverter.ConvertToDto(x)).ToList();
     }
 
-    public CartDto AddCart(int userId, int productId, int qty)
+    public void AddCart(int userId, int productId, int qty)
     {
         Cart cart = new()
         {
@@ -30,6 +30,22 @@ public class BuyerService
         };
         _repository.AddCart(cart);
 
-        return DtoConverter.ConvertToDto(cart);
+        
+    }
+    
+    
+
+    public void UpdateCart(int paramUserId, int paramProductId, int paramQty)
+    {
+        Cart cartToUpdate = new Cart
+        {
+            UserId = paramUserId,
+            ProductId = paramProductId,
+            Quantity = paramQty
+        };
+
+        // 레포지토리의 UpdateCart 메서드를 호출합니다.
+         _repository.UpdateCart(cartToUpdate); // _cartRepository는 레포지토리 인스턴스라고 가정
+
     }
 }

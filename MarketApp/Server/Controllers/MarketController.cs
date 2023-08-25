@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using MarketApp.Server.Service;
 using MarketApp.Shared;
 using Microsoft.AspNetCore.Authorization;
@@ -10,6 +11,7 @@ namespace MarketApp.Server.Controllers;
 public class MarketController: ControllerBase
 {
     private readonly MarketService _service;
+    private int UserId => int.Parse(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value ?? "0");
 
     public MarketController(MarketService service)
     {
