@@ -35,6 +35,8 @@ public class SalesController: ControllerBase
         if (param.file != null && param.file.Length > 0)
         {
             //클라이언트 정적 파일루트 
+            //발표용 파일루트 설정입니다.
+#if Test
             var webRoot = "/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Client/wwwroot";
             
             // 파일 확장자 가져오기
@@ -55,6 +57,7 @@ public class SalesController: ControllerBase
 
             _service.UpdateUrl(dto.ProductId, imageUrl);
             dto.ImageUrl = imageUrl;
+#endif
         }
 
         return dto;
