@@ -36,7 +36,7 @@ public class SalesController: ControllerBase
         {
             //클라이언트 정적 파일루트 
             //발표용 파일루트 설정입니다.
-#if Test
+#if Conference
             var webRoot = "/Users/leejonghoon/RiderProjects/MarketApp/MarketApp/Client/wwwroot";
             
             // 파일 확장자 가져오기
