@@ -3,6 +3,7 @@
 @using MarketApp.Client.Service
 @inject HttpClient Http
 @inject UserStateManager UserManager 
+@inject NavigationManager NaviManager
 
 <link href="css/register.css" rel="stylesheet" />
 
@@ -85,14 +86,15 @@
         form.Add(new StringContent(category.ToString()), "category");
         form.Add(new StringContent(price.ToString()), "price");
         form.Add(new StringContent(productName), "productName");
-        form.Add(new StringContent(content), "content");
+        form.Add(new StringContent(content ?? string.Empty), "content");
+
 
     // Sending form data
         var response = await Http.PostAsync("Regist", form);
 
         if (response.IsSuccessStatusCode)
         {
-  
+            NaviManager.NavigateTo("/productlist");
         }
         else
         {

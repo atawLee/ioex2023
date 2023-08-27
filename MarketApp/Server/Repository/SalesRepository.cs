@@ -13,6 +13,7 @@ public class SalesRepository : RepositoryBase ,ISalesRepository
     
     public Product AddProduct(Product product)
     {
+        if (product.Content is null) product.Content = "";
         _context.Products.Add(product);
         var category = _context.Categories.FirstOrDefault(x => x.CategoryId == product.CategoryId);
         _context.SaveChanges();
